@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI Calculator</title>
+	<meta charset="utf-8">
+		<meta name="viewport"content="with=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+			  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+	.myclass{
+  width: 100%;
+  height: 100vh;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 20s;
+   animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  30%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+	.container{
+	width: 100%;
+			  		position: absolute;
+			  		top: 50%;
+			  		left: 50%;
+			  		transform:translate(-50%,-50%) ;
+	}
+	 input{
+		color: #000;
+	}
+
+</style>
+	
+</head>
+<body>
+	<div class="myclass"></div>
+<div class="container w-50 bg-primary ">
+	<div class="card bg-info">
+		<div class="card-header text-center text-warning">BMI Calculator</div>
+		<div class="card-body w-50 m-auto">
+			<form  onsubmit="return false">
+				<div class="form-group">
+					<label>Weight:</label>
+					<input type="text" name="" placeholder="Enter your weight(in Kg)" id="weight" class="form-control  bg-white text-dark">
+				</div>
+					<div class="form-group">
+					<label>Height:</label>
+					<input type="text" name="" placeholder="Enter your height(in feet)" id="height" class="form-control bg-white text-dark ">
+				</div>
+				<div class="form-group">
+					<label>BMI:</label>
+					<input type="text" name="" id="showV" class="form-control bg-dark text-white ">
+				</div>
+				<div>
+					<button type="submit" class="btn btn-success " onclick="getbmi()">Check BMI</button>
+				</div>
+
+			</form>
+			
+		</div>
+		<div class="card-footer text-center" style="text-transform: uppercase">A healthy bmi ranges from 19 to 25</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function getbmi () {
+		// body... 
+		var height=document.getElementById('height').value;
+				var weight=document.getElementById('weight').value;
+				height=height*12*0.025;
+				var bmi=weight/(height*height);
+				// console.log(bmi);
+				var newBmi=Math.round(bmi);
+				document.getElementById('showV').value=newBmi;
+
+
+	}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
