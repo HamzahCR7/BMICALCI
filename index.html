@@ -60,15 +60,19 @@ color: #0066ff;
 			<form  onsubmit="return false">
 				<div class="form-group">
 					<label>Weight:</label>
-					<input type="text" name="" placeholder="Enter your weight(in Kg)" id="weight" class="form-control  bg-white text-dark">
+					<input type="text" name="" placeholder="Enter your weight(in Kg)" id="weight" class="form-control  bg-white text-dark" required>
 				</div>
 					<div class="form-group">
 					<label>Height:</label>
-					<input type="text" name="" placeholder="Enter your height(in feet)" id="height" class="form-control bg-white text-dark ">
+					<input type="text" name="" placeholder="Enter your height(in feet)" id="height" class="form-control bg-white text-dark "required>
 				</div>
 				<div class="form-group">
 					<label>BMI:</label>
 					<input type="text" name="" id="showV" class="form-control bg-dark text-white ">
+				</div>
+				<div class="form-group">
+					<label>Result:</label>
+					<input type="text" name="" id="showR" class="form-control bg-dark text-white ">
 				</div>
 				<div>
 					<button type="submit" class="btn btn-success " onclick="getbmi()">Check BMI</button>
@@ -95,7 +99,20 @@ color: #0066ff;
 				var bmi=weight/(height*height);
 				// console.log(bmi);
 				var newBmi=Math.round(bmi);
-				document.getElementById('showV').value=newBmi;
+				document.getElementById('showV').value="Your BMI is "+newBmi;
+				
+				if(newBmi<19){
+										document.getElementById('showR').value="U R Unhealthy.You Need to Gain Weight";
+
+				}
+				 else if(newBmi>=19 && newBmi<=25){
+					document.getElementById('showR').value="You Are Healthy";
+				}
+				else {
+
+									document.getElementById('showR').value="U R Unhealthy.You Need To Loose Weight";
+	
+				}
 
 
 	}
